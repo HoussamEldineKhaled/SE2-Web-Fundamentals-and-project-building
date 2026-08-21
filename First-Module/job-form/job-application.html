@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStart Careers: Job Application</title>
+</head>
+<body>
+
+    <form action="/submit-application" method="get">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="first-name">First Name: </label>
+            <input type="text" name="first-name" placeholder="First Name" required>
+            <br>
+            <label for="last-name">Last Name: </label>
+            <input type="text" name="last-name" placeholder="Last Name" required>
+            <br>
+            <label for="date-of-birth">Date of Birth: </label>
+            <input type="date" name="date-of-birth" placeholder="Date of Birth">
+            <br>
+            <label>Gender</label>
+            <br>
+            <label for="male">Male</label>
+            <input type="radio" name="male" value="Male">
+            <label for="female">Female</label>
+            <input type="radio" name="female" value="Female">
+            <label for="non-binary">Non-binary</label>
+            <input type="radio" name="non-binary" value="Non-binary">
+            <label for="idk">Prefer not to say</label>
+            <input type="radio" name="idk" value="Prefer not to say">
+        </fieldset>
+
+        <fieldset>
+            <legend>Contact Details</legend>
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="Enter Email" required>
+            <br>
+            <label for="number">Phone Number</label>
+            <input type="tel" name="number" placeholder="Enter Phone Number">
+            
+        </fieldset>
+    </form>
+    
+</body>
+</html>
