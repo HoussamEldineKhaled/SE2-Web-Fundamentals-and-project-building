@@ -19,16 +19,16 @@
             <label for="date-of-birth">Date of Birth: </label>
             <input type="date" name="date-of-birth" placeholder="Date of Birth">
             <br>
-            <label>Gender</label>
+            <label for="gender">Gender</label>
             <br>
-            <label for="male">Male</label>
-            <input type="radio" name="male" value="Male">
-            <label for="female">Female</label>
-            <input type="radio" name="female" value="Female">
-            <label for="non-binary">Non-binary</label>
-            <input type="radio" name="non-binary" value="Non-binary">
-            <label for="idk">Prefer not to say</label>
-            <input type="radio" name="idk" value="Prefer not to say">
+            <label>Male</label>
+            <input type="radio" name="gender" value="Male">
+            <label>Female</label>
+            <input type="radio" name="gender" value="Female">
+            <label>Non-binary</label>
+            <input type="radio" name="gender" value="Non-binary">
+            <label>Prefer not to say</label>
+            <input type="radio" name="gender" value="Prefer not to say">
         </fieldset>
 
         <fieldset>
@@ -86,30 +86,30 @@
                 <option value="other">Other</option>
             </select>
             <br>
-            <label>Department Preference</label>
+            <label for="preference">Department Preference</label>
             <br>
-            <label for="engineering">Engineering</label>
-            <input type="radio" name="engineering" value="engineering">
-            <label for="design">Design</label>
-            <input type="radio" name="design" value="design">
-            <label for="marketing">Marketing</label>
-            <input type="radio" name="marketing" value="marketing">
-            <label for="sales">Sales</label>
-            <input type="radio" name="sales" value="sales">
-            <label for="operations">Operations</label>
-            <input type="radio" name="operations" value="operations">
+            <label>Engineering</label>
+            <input type="radio" name="preference" value="engineering">
+            <label>Design</label>
+            <input type="radio" name="preference" value="design">
+            <label>Marketing</label>
+            <input type="radio" name="preference" value="marketing">
+            <label>Sales</label>
+            <input type="radio" name="preference" value="sales">
+            <label>Operations</label>
+            <input type="radio" name="preference" value="operations">
             <br>
             <br>
-            <label>Experience Level</label>
+            <label for="experience-level">Experience Level</label>
             <br>
-            <label for="entry">Entry Level</label>
-            <input type="radio" name="entry" value="entry">
-            <label for="mid">Mid Level</label>
-            <input type="radio" name="mid" value="mid">
-            <label for="senior">Senior Level</label>
-            <input type="radio" name="senior" value="senior">
-            <label for="lead">Lead/Manager</label>
-            <input type="radio" name="lead" value="lead">
+            <label>Entry Level</label>
+            <input type="radio" name="experience-level" value="entry">
+            <label>Mid Level</label>
+            <input type="radio" name="experience-level" value="mid">
+            <label>Senior Level</label>
+            <input type="radio" name="experience-level" value="senior">
+            <label>Lead/Manager</label>
+            <input type="radio" name="experience-level" value="lead">
             <br>
             <br>
             <label for="employment-status">Employment Status</label>
@@ -126,20 +126,20 @@
         <fieldset>
             <legend>Skills & Qualifications</legend>
 
-            <label for="">Highest Education Level</label>
+            <label for="edu-level">Highest Education Level</label>
             <br>
-            <label for="high-school">High School</label>
-            <input type="radio" name="high-school" value="high-school">
-            <label for="associate-degree">Associate Degree</label>
-            <input type="radio" name="associate-degree" value="associate-degree">
-            <label for="bachelor-degree">Bachelor's Degree</label>
-            <input type="radio" name="bachelor-degree" value="bachelor-degree">
-            <label for="master-degree">Master's Degree</label>
-            <input type="radio" name="master-degree" value="master-degree">
-            <label for="phd">PhD</label>
-            <input type="radio" name="phd" value="phd">
-            <label for="other">Other</label>
-            <input type="radio" name="other" value="other">
+            <label>High School</label>
+            <input type="radio" name="edu-level" value="high-school">
+            <label>Associate Degree</label>
+            <input type="radio" name="edu-level" value="associate-degree">
+            <label>Bachelor's Degree</label>
+            <input type="radio" name="edu-level" value="bachelor-degree">
+            <label>Master's Degree</label>
+            <input type="radio" name="edu-level" value="master-degree">
+            <label>PhD</label>
+            <input type="radio" name="edu-level" value="phd">
+            <label>Other</label>
+            <input type="radio" name="edu-level" value="other">
             <br>
             <br>
             <label for="technical-skills">Technical Skills</label>
@@ -166,6 +166,43 @@
             <br>
             <label for="previous-salary">Previous Salary</label>
             <input type="number" name="previous-salary" optional>
+        </fieldset>
+
+        <fieldset>
+            <legend>Availablilty & Preferences</legend>
+            <label for="start">Earliest Start Date</label>
+            <input type="date" name="start" required>
+            <br>
+            <label for="preference">Work Preference</label>
+            <br>
+            <label>Full Time</label>
+            <input type="radio" name="preference" value="full-time">
+            <label>Part time</label>
+            <input type="radio" name="preference" value="part-time">
+            <label>Contract</label>
+            <input type="radio" name="preference" value="contract">
+            <label>Internship</label>
+            <input type="radio" name="preference" value="internship">
+            <br>
+            <label for="relocate">Willing to Relocate?</label>
+            <br>
+            <label>Yes</label>
+            <input type="radio" name="relocate" value="yes">
+            <label>No</label>
+            <input type="radio" name="relocate" value="no">
+            <label>Maybe</label>
+            <input type="radio" name="relocate" value="maybe">
+            <br>
+            <label for="salary-range">Salary Range</label>
+            <select name="salary-range">
+                <option value="30k-40k">$30000-$40000</option>
+                <option value="40k-55k">$40000-$55000</option>
+                <option value="55k-70k">$55000-$70000</option>
+                <option value="70k-85k">$70000-$85000</option>
+                <option value="85k-100k">$85000-$100000</option>
+                <option value="100k">$100000</option>
+                <option value="prefer-discuss">Prefer to discuss</option>
+            </select>
         </fieldset>
     </form>
     
