@@ -204,6 +204,35 @@
                 <option value="prefer-discuss">Prefer to discuss</option>
             </select>
         </fieldset>
+
+        <fieldset>
+            <legend>Application Materials</legend>
+
+            <label for="cover-letter">Cover Letter</label>
+            <textarea name="cover-letter" cols="60" rows="5" placeholder="Tell us why you're interested in working with us"></textarea>
+            <br>
+            <label for="hearing">How did you hear about us?</label>
+            <select name="hearing">
+                <option value="company-website">Company Website</option>
+                <option value="job-board">Job Board</option>
+                <option value="social-media">Social Media</option>
+                <option value="friend-colleague">Friend or Colleague</option>
+                <option value="recruiter">Recruiter</option>
+                <option value="career-fair">Career Fair</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <label for="additional-comments">Additional Comments</label>
+            <textarea name="additional-comments" cols="60" rows="3" placeholder="Anything else you want to share?"></textarea>
+            <br>
+            <br>
+            <button type="submit">Submit Application</button>
+            <br>
+            <button type="reset">Clear Form</button>
+            <br>
+            <label for="agree">I agree to the terms and conditions</label>
+            <input type="checkbox" name="agree" value="agreed" required>
+        </fieldset>
     </form>
     
 </body>
