@@ -32,6 +32,7 @@ fieldset{
     display: flex;
     gap: 10px 10px;
     flex-direction: column;
+    flex-wrap: wrap;
     background-color: #d5dbdb;
     margin-bottom: 5px;
     border-radius: 5px;
@@ -83,4 +84,19 @@ option:hover{
 }
 .terms{
     margin: auto;
+}
+
+@media (max-width: 768px) {
+    .title-section{
+        font-size: 18px;
+    }
+    legend{
+        font-size: 12px;
+    }
+    label{
+        font-size: small;
+    }
+    input{
+        font-size: xx-small;
+    }
 }
