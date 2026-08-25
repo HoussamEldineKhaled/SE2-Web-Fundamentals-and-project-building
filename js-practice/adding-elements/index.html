@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creating Elements</title>
+    <style>
+        .new-element {
+            background-color: #e8f5e8;
+            border: 1px solid #4caf50;
+            padding: 20px;
+            margin: 5px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Element Creation Demo</h1>
+    
+    <button onclick="createParagraph()">Create Paragraph</button>
+    <button onclick="createButton()">Create Button</button>
+    <button onclick="createList()">Create List</button>
+    <button onclick="clearContainer()">Clear All</button>
+    
+    <div id="container">
+
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+
+        function createParagraph() {
+           const p = document.createElement('p')
+           p.textContent = "Hello, new paragraph"
+           p.className = "new-element"
+
+           container.appendChild(p)
+        }
+        
+        function createButton() {
+            const button = document.createElement('button')
+            button.textContent = "Click here lol"
+            button.onclick = welcomeAlert
+            button.className = ""
+            container.appendChild(button)
+        }
+        
+        function createList() {
+            const ul = document.createElement('ul')
+            ul.className = "new-element"
+            const numberOfListItems = 4
+            for(let i = 0 ; i < numberOfListItems; i++){
+                const li = document.createElement('li')
+                li.textContent= `Item number ${i+1}`
+                ul.appendChild(li)
+            }
+            container.appendChild(ul)
+        }
+        
+        function clearContainer() {
+            const containerChildren = Array.from(container.children)
+            for(let element of containerChildren){
+                element.remove()
+            }
+
+        }
+
+        function welcomeAlert() {
+           alert("Hala bil ghale")
+        }
+    </script>
+</body>
+</html>
