@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Us</title>
+</head>
+
+<body>
+    <h1>Contact Our Team</h1>
+    <p>We'd love to hear from you! Fill out the form below.</p>
+
+    <form action="/contact" method="post">
+        <fieldset>
+            <legend>Your Information</legend>
+
+            <p>
+                <label for="fullName">Full Name:</label><br>
+                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+            </p>
+
+            <p>
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </p>
+
+            <p>
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Message Details</legend>
+
+            <p>
+                <label for="subject">Subject:</label><br>
+                <select id="subject" name="subject" required>
+                    <option value="">-- Select Subject --</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="sales">Sales Question</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="priority">Priority:</label><br>
+                <input type="radio" id="low" name="priority" value="low" checked>
+                <label for="low">Low</label>
+
+                <input type="radio" id="normal" name="priority" value="normal">
+                <label for="normal">Normal</label>
+
+                <input type="radio" id="high" name="priority" value="high">
+                <label for="high">High</label>
+            </p>
+
+            <p>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="6" cols="50" required
+                    placeholder="Please describe your question or feedback..."></textarea>
+            </p>
+
+            <p>
+                <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                <label for="newsletter">Subscribe to our newsletter</label>
+            </p>
+        </fieldset>
+
+        <p>
+            <button type="submit">Send Message</button>
+            <button type="reset">Clear Form</button>
+        </p>
+    </form>
+    <div id="container_results"></div>
+</body>
+<script>
+    const nameInput = document.getElementById("fullName")
+    const emailInput = document.getElementById("email")
+    const phoneInput = document.getElementById("phone")
+    
+</script>
+</html>
