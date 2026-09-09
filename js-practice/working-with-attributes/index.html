@@ -3,6 +3,19 @@
 
 <head>
     <title>Contact Us</title>
+    <style>
+        .card{
+            background-color: cadetblue;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px dashed black;
+
+        }
+
+        .card h1{
+            color: azure;
+        }
+    </style>
 </head>
 
 <body>
@@ -68,16 +81,101 @@
         </fieldset>
 
         <p>
-            <button type="submit">Send Message</button>
+            <button type="submit" onclick="getData(event)"">Send Message</button>
             <button type="reset">Clear Form</button>
         </p>
     </form>
-    <div id="container_results"></div>
+    <div id="container_results" class="card">
+        doe
+    </div>
 </body>
 <script>
-    const nameInput = document.getElementById("fullName")
-    const emailInput = document.getElementById("email")
-    const phoneInput = document.getElementById("phone")
+
+    function getPriority(){
+        const lowRadio = document.getElementById("low")
+        const normalRadio = document.getElementById("normal")
+        const highRadio = document.getElementById("high")
+
+        if(lowRadio.checked){
+            return "low";
+        } else if(normalRadio.checked){
+            return "normal";
+        } else if(highRadio.checked){
+            return "high"
+        } else {
+            return "N/A"
+        }
+    }
+
+    function getName(){
+        const nameInput = document.getElementById("fullName")
+        return nameInput.value;
+    }
+
+    function getemailInput(){
+        const emailInput = document.getElementById("email")
+        return emailInput.value
+    }
+    function getPhoneInput(){
+        const phoneInput = document.getElementById("phone")
+        return phoneInput.value;
+    }
+
+    function getSubject(){
+        const subjectInput = document.getElementById("subject")
+        if(subjectInput.value === "general"){
+            return "General Inquiry"
+        } else if(subjectInput.value === "support"){
+            return "Support Inquiery"
+        } else if(subjectInput.value ===  "sales"){
+            return "Sales Question"
+        } else if(subjectInput.value === "feedback"){
+            return "Feedback"
+        } else {
+            return "N/A"
+        }
+    }
+
+    function getMessage(){
+        const inputMessage = document.getElementById("message")
+        return inputMessage.value
+    }
+
+    function getSubscription(){
+        const isSubbed = document.getElementById("newsletter")
+        if(isSubbed.checked){
+            return "subscribed"
+        } else {
+            return "unsubscribed"
+        }
+    }
+
+    function getData(event){
+        event.preventDefault()
+        const data = {
+        username:getName(),
+        email:getemailInput(),
+        phone:getPhoneInput(),
+        priority: getPriority(),
+        subject: getSubject()
+    }
+
+        const card = document.createElement('div')
+        card.className = 'card'
+
+        const h1 = document.createElement('h1')
+        h1.textContent = "Message sent:"
+        card.appendChild(h1)
+        for(let key of Object.keys(data)){
+            const value = data[key]
+            const p = document.createElement('p')
+            p.textContent = `${key} : ${value}`
+            card.appendChild(p)
+        }
+
+        document.body.appendChild(card)
+    }
+
     
 </script>
 </html>
