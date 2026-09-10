@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Effects with Checkboxes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        h1 {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .controls {
+            padding: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .effect-button {
+            padding: 12px 20px;
+            border: 2px solid #667eea;
+            background-color: white;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .effect-button:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.2);
+        }
+
+        .effect-button.active {
+            background: linear-gradient(45deg, green, yellowgreen);
+            color: white;
+            border-color: black;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .preview-area {
+            padding: 30px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
+        .text-preview {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            font-size: 24px;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .applied-classes {
+            padding: 20px 30px;
+            background-color: #f1f3f4;
+        }
+
+        h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .class-list {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Text Effect Classes */
+        .text-red {
+            color: #e74c3c;
+        }
+
+        .text-bold {
+            font-weight: bold;
+        }
+
+        .text-italic {
+            font-style: italic;
+        }
+
+        .text-large {
+            font-size: 36px;
+        }
+
+        .text-shadow {
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .text-underline {
+            text-decoration: underline;
+        }
+
+        .bg-blue {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+                padding: 20px;
+            }
+
+            .controls {
+                padding: 20px;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .text-preview {
+                padding: 20px;
+                font-size: 18px;
+            }
+
+            .text-large {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Text Effects Demo</h1>
+
+        <div class="controls">
+            <h2>Text Effects</h2>
+            <div class="checkbox-group" id="button-list">
+                <button class="effect-button" id="red-color" data-class="text-red" onclick="toggleEffect('red-color', 'text-red')">
+                    Make text red
+                </button>
+
+                <button class="effect-button" id="bold-text" data-class='text-bold' onclick="toggleEffect('bold-text', 'text-bold')">
+                    Make text bold
+                </button>
+
+                <button class="effect-button" id="italic-text" data-class="text-italic" onclick="toggleEffect('italic-text', 'text-italic')">
+                    Make text italic
+                </button>
+
+                <button class="effect-button" id="blue-bg" data-class="bg-blue" onclick="toggleEffect('blue-bg', 'bg-blue')">
+                    Blue background
+                </button>
+            </div>
+
+            <div class="input-group">
+                <label for="custom-text">Enter your text:</label>
+                <input type="text" id="custom-text" placeholder="Type something here..." value="This is sample text"
+                    oninput="reflectChangesIntoPreview()">
+            </div>
+
+            <button id="reset-btn" onclick="resetAll()">Reset All</button>
+        </div>
+
+        <div class="preview-area">
+            <h2>Preview</h2>
+            <div id="text-preview" class="text-preview">
+                This is sample text
+            </div>
+        </div>
+
+        <div class="applied-classes">
+            <h3>Applied Classes:</h3>
+            <div id="class-list" class="class-list">
+                No classes applied
+            </div>
+        </div>
+    </div>
+    <script src="text-effect.js"></script>
+</body>
+
+</html>
