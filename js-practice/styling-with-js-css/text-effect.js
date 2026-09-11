@@ -25,6 +25,16 @@ function setTextPreview(text){
     textPreview.textContent = text
 }
 
+
+document.getElementById("button-list").addEventListener('click', function (e) {
+    if(e.target.tagName === "BUTTON"){
+        const button = e.target
+        const className = button.getAttribute('data-class')
+        const buttonId = button.id
+        toggleEffect(buttonId, className)
+    }
+})
+
 function toggleEffect(id, className){
     if(textPreview.classList.contains(className)){
         textPreview.classList.remove(className)

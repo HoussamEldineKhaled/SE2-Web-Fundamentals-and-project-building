@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Demo - Event Listeners Tutorial</title>
+    <link href="./validator.css" rel="stylesheet" />
+    <script src="./validator.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Form Validation Demo</h1>
+        </header>
+
+        <div class="form-section">
+            <form id="validationForm">
+                <div class="form-group">
+                    <label for="username">Username *</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username (min 3 characters)">
+                    <div class="error-message" id="username-error"></div>
+                    <div class="success-message" id="username-success">✓ Username looks good!</div>
+                    <div class="helper-text">Must be at least 3 characters long</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                    <div class="error-message" id="email-error"></div>
+                    <div class="success-message" id="email-success">✓ Valid email format!</div>
+                    <div class="helper-text">Must be a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" name="password"
+                        placeholder="Enter password (min 6 characters)">
+                    <div class="error-message" id="password-error"></div>
+                    <div class="success-message" id="password-success">✓ Strong password!</div>
+                    <div class="helper-text">Must be at least 6 characters long</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age *</label>
+                    <input type="number" id="age" name="age" placeholder="Enter your age" min="1" max="120">
+                    <div class="error-message" id="age-error"></div>
+                    <div class="success-message" id="age-success">✓ Valid age!</div>
+                    <div class="helper-text">Must be between 1 and 120</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country *</label>
+                    <select id="country" name="country">
+                        <option value="">Select a country</option>
+                        <option value="usa">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="canada">Canada</option>
+                        <option value="australia">Australia</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="error-message" id="country-error"></div>
+                    <div class="success-message" id="country-success">✓ Country selected!</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bio">Bio *</label>
+                    <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself (max 200 characters)"
+                        maxlength="200"></textarea>
+                    <div class="char-counter" id="char-counter">0 / 200 characters</div>
+                    <div class="error-message" id="bio-error"></div>
+                    <div class="success-message" id="bio-success">✓ Bio looks great!</div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">I agree to the terms and conditions *</label>
+                </div>
+                <div class="error-message" id="terms-error"></div>
+
+                <div class="button-group">
+                    <button type="submit" class="submit-btn" id="submitBtn">Submit Form</button>
+                    <button type="reset" class="reset-btn">Reset</button>
+                </div>
+            </form>
+
+            <div class="result-card" id="resultCard">
+                <h3>✅ Form Submitted Successfully!</h3>
+                <div id="resultContent"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
