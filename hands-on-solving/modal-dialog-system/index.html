@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Modal Dialog System</title>
+    <style>
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(0.7);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .modal.show {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-title {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .modal-close:hover {
+            background-color: #f0f0f0;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .demo-btn {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Modal Dialog System</h1>
+
+    <button class="demo-btn" id="open-modal">Open Modal</button>
+    <button class="demo-btn" id="open-confirm">Open Confirmation</button>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">Modal Title</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                Modal content goes here.
+            </div>
+            <div class="modal-footer" id="modal-footer">
+                <button class="btn btn-secondary" id="modal-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-confirm">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modalOverlay = document.getElementById("modal-overlay")
+        const modalContainer = document.getElementById("modal")
+        const modalTitle = document.getElementById("modal-title")
+        const modalBody = document.getElementById("modal-body")
+        const modalFooter = document.getElementById("modal-footer")
+        const openButton = document.getElementById("open-modal")
+        const openConfirm = document.getElementById("open-confirm")
+        const cancelModal = document.getElementById("modal-cancel")
+        const confirmModal = document.getElementById("modal-confirm")
+        const closeButton = document.getElementById("modal-close")
+
+
+        openButton.addEventListener("click", function(){
+            const welcome = openModal("Welcome!!", "I am a chatbot", true)
+            return welcome
+        })
+        openConfirm.addEventListener("click", function (){
+            const confirm
+        })
+        closeButton.addEventListener("click", closeModal())
+
+        function openModal(title, content, showFooter){
+            modalTitle.textContent = title
+            modalBody.textContent = content
+            if(showFooter === false){
+                modalFooter.style.display = "none"
+            } else {
+                modalFooter.style.display = "flex"
+            }
+            if(modalOverlay.style.display == "none"){
+                modalOverlay.style.display = "flex"
+            }
+            modalContainer.classList.add("show")
+
+        }
+        function closeModal(){
+            modalContainer.classList.remove("show")
+
+        }
+
+    </script>
+</body>
+
+</html>
