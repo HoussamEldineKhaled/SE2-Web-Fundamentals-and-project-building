@@ -142,32 +142,69 @@
         const confirmModal = document.getElementById("modal-confirm")
         const closeButton = document.getElementById("modal-close")
 
+        let currentCallback = null
 
         openButton.addEventListener("click", function(){
-            const welcome = openModal("Welcome!!", "I am a chatbot", true)
+            const welcome = openModal("Welcome!!", "I am a chatbot", false, function(ok){
+                console.log(ok)
+            })
             return welcome
         })
-        openConfirm.addEventListener("click", function (){
-            const confirm
-        })
-        closeButton.addEventListener("click", closeModal())
 
-        function openModal(title, content, showFooter){
+        modalOverlay.addEventListener("click", function(e){
+            if(e.target === modalOverlay){
+                closeModal()
+            }
+        })
+
+        openConfirm.addEventListener("click", function(){
+            const confirm = openModal("Confirmed!!", "Your button pressing has been confirmed", true, 
+            function(ok){
+                if(ok === true){
+                    alert("Confirmed")
+                } else {
+                    alert("Cancelled")
+                } 
+            })
+            return confirm
+        })
+
+        confirmModal.addEventListener("click", function(){
+            closeModal()
+            currentCallback(true)
+        })
+
+        cancelModal.addEventListener("click", function(){
+            closeModal()
+            currentCallback(false)
+        })
+
+
+
+
+        closeButton.addEventListener("click", function(){
+            const exit = closeModal()
+            return exit
+        })
+        function openModal(title, content, showFooter, callback){
             modalTitle.textContent = title
             modalBody.textContent = content
+            
+            modalOverlay.style.display = "flex"
+            
             if(showFooter === false){
                 modalFooter.style.display = "none"
             } else {
                 modalFooter.style.display = "flex"
             }
-            if(modalOverlay.style.display == "none"){
-                modalOverlay.style.display = "flex"
-            }
+
             modalContainer.classList.add("show")
 
+            currentCallback = callback
         }
         function closeModal(){
             modalContainer.classList.remove("show")
+            modalOverlay.style.display = "none"
 
         }
 
