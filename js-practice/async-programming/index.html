@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Display</title>
+</head>
+<body>
+    
+    <div>
+        <input type="text" id="textbox" placeholder="Text will appear here">
+        <br><br>
+        <button onclick="showAfterTimeout()">Show message after 6 seconds</button>
+        <button onclick="displayText('Hello World')">Display another text</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        function displayText(text){
+            document.getElementById("textbox").value = text
+        }
+        function showAfterTimeout(){
+            const result = document.getElementById("result")
+            setTimeout(() => {
+                result.textContent = 'text after 1 second 666666777777777777'
+            }, 1000)
+            setTimeout(() => {
+                result.textContent = 'text after 0.5 second 666666777777777777'
+            }, 500)
+            setTimeout(() => {
+                result.textContent = 'text after 2 second 666666777777777777'
+            }, 2000)
+        }
+    </script>
+</body>
+</html>
