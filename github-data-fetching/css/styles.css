@@ -1,0 +1,47 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+body{
+    box-sizing: border-box;
+    background-color: azure;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.title-section{
+    text-align: center;
+    background-color: rgb(181, 197, 249);
+    width: 100%;
+    color: rgb(25, 70, 152);
+
+
+}
+
+.form-section{
+
+}
+
+.form-section .search-input{
+
+}
+
+.form-section .search-button{
+
+}
+
+.search-results{
+
+}
+
+.search-results .user-profile-display{
+
+}
+
+.search-results .repo-list{
+
+}
+
