@@ -1,5 +1,9 @@
 "use strict";
 // creating a simple class
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 class Person {
     // properties
     name;
@@ -84,3 +88,34 @@ class Point {
 const p1 = new Point(3, 4);
 const p2 = new Point();
 console.log(p1.distance(p2));
+// declaration and initialization with parameter properties
+class User {
+    username;
+    email;
+    age;
+    constructor(username, email, age) {
+        this.username = username;
+        this.email = email;
+        this.age = age;
+    }
+}
+// mixed approach
+class appointment {
+    patientId;
+    patientName;
+    time;
+    constructor(patientId, patientName) {
+        this.patientId = patientId;
+        this.patientName = patientName;
+        this.time = new Date();
+    }
+}
+const Book_1 = __importDefault(require("./models/Book"));
+const book = new Book_1.default("978-0-13-467905-4", "Clean Code", "Robert C. Martin", 464);
+book.read(50);
+console.log(book.getProgress()); // 10.776...
+console.log(book.toString()); // "Clean Code" by Robert C. Martin (50/464 pages)
+book.read(414);
+console.log(book.isFinished()); // true
+book.reset();
+console.log(book.getProgress()); // 0

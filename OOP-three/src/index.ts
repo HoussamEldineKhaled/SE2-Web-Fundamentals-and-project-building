@@ -1,3 +1,4 @@
+
 // creating a simple class
 
 
@@ -137,4 +138,24 @@ class appointment{
         this.time = new Date()
     }
 }
+
+
+import Book from './models/Book'
+
+const book = new Book("978-0-13-467905-4", "Clean Code", "Robert C. Martin", 464);
+
+book.read(50);
+console.log(book.getProgress());  // 10.776...
+console.log(book.toString());     // "Clean Code" by Robert C. Martin (50/464 pages)
+
+book.read(414);
+console.log(book.isFinished());   // true
+
+book.reset();
+console.log(book.getProgress());  // 0
+
+
+
+
+
 
