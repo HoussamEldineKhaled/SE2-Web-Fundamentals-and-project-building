@@ -1,5 +1,5 @@
 {
-  "name": "oop-two",
+  "name": "oop-",
   "scripts": {
     "build": "tsc",
     "start": "node build/index.js"
