@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Element Insertion</title>
+    <style>
+        .container {
+            border: 2px solid #333;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f5f5f5;
+        }
+
+        .reference {
+            background-color: #ffc107;
+            padding: 10px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .inserted {
+            background-color: #17a2b8;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Element Insertion Demo</h1>
+
+    <button onclick="addBefore()">Insert Before</button>
+    <button onclick="addAfter()">Insert After</button>
+    <button onclick="prependElement()">Prepend</button>
+    <button onclick="appendElement()">Append</button>
+    <button onclick="resetDemo()">Reset</button>
+
+    <div id="container" class="container">
+        <div id="reference" class="reference">
+            Reference Element
+        </div>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const reference = document.getElementById('reference');
+
+        function addBefore() {
+            const newElement = document.createElement('div');
+            newElement.className = 'inserted';
+            newElement.textContent = "added before reference";
+            reference.before(newElement);
+        }
+
+        function addAfter() {
+            const newElement = document.createElement('div');
+            newElement.className = "inserted";
+            newElement.textContent = "added after the reference"
+            reference.after(newElement);
+        }
+
+        function prependElement() {
+            const newElement = document.createElement('div');
+            newElement.className = "inserted";
+            newElement.textContent = "prepended element"
+            container.prepend(newElement)
+        }
+
+        function appendElement() {
+            const newElement = document.createElement('div');
+            newElement.className = "inserted";
+            newElement.textContent = "appended element";
+            container.append(newElement);
+        }
+
+        function resetDemo() {
+            const containerChildren = Array.from(container.children);
+            for(let i of containerChildren){
+                if(i.id === "reference"){
+                    continue
+                }
+                i.remove();
+            }
+        }
+    </script>
+</body>
+
+</html>

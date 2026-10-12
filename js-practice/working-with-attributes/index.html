@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Us</title>
+    <style>
+        .card{
+            background-color: cadetblue;
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px dashed black;
+
+        }
+
+        .card h1{
+            color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contact Our Team</h1>
+    <p>We'd love to hear from you! Fill out the form below.</p>
+
+    <form action="/contact" method="post">
+        <fieldset>
+            <legend>Your Information</legend>
+
+            <p>
+                <label for="fullName">Full Name:</label><br>
+                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+            </p>
+
+            <p>
+                <label for="email">Email Address:</label><br>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </p>
+
+            <p>
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+            </p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Message Details</legend>
+
+            <p>
+                <label for="subject">Subject:</label><br>
+                <select id="subject" name="subject" required>
+                    <option value="">-- Select Subject --</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="sales">Sales Question</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="priority">Priority:</label><br>
+                <input type="radio" id="low" name="priority" value="low" checked>
+                <label for="low">Low</label>
+
+                <input type="radio" id="normal" name="priority" value="normal">
+                <label for="normal">Normal</label>
+
+                <input type="radio" id="high" name="priority" value="high">
+                <label for="high">High</label>
+            </p>
+
+            <p>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="6" cols="50" required
+                    placeholder="Please describe your question or feedback..."></textarea>
+            </p>
+
+            <p>
+                <input type="checkbox" id="newsletter" name="newsletter" value="yes">
+                <label for="newsletter">Subscribe to our newsletter</label>
+            </p>
+        </fieldset>
+
+        <p>
+            <button type="submit" onclick="getData(event)"">Send Message</button>
+            <button type="reset">Clear Form</button>
+        </p>
+    </form>
+    <div id="container_results" class="card">
+        doe
+    </div>
+</body>
+<script>
+
+    function getPriority(){
+        const lowRadio = document.getElementById("low")
+        const normalRadio = document.getElementById("normal")
+        const highRadio = document.getElementById("high")
+
+        if(lowRadio.checked){
+            return "low";
+        } else if(normalRadio.checked){
+            return "normal";
+        } else if(highRadio.checked){
+            return "high"
+        } else {
+            return "N/A"
+        }
+    }
+
+    function getName(){
+        const nameInput = document.getElementById("fullName")
+        return nameInput.value;
+    }
+
+    function getemailInput(){
+        const emailInput = document.getElementById("email")
+        return emailInput.value
+    }
+    function getPhoneInput(){
+        const phoneInput = document.getElementById("phone")
+        return phoneInput.value;
+    }
+
+    function getSubject(){
+        const subjectInput = document.getElementById("subject")
+        if(subjectInput.value === "general"){
+            return "General Inquiry"
+        } else if(subjectInput.value === "support"){
+            return "Support Inquiery"
+        } else if(subjectInput.value ===  "sales"){
+            return "Sales Question"
+        } else if(subjectInput.value === "feedback"){
+            return "Feedback"
+        } else {
+            return "N/A"
+        }
+    }
+
+    function getMessage(){
+        const inputMessage = document.getElementById("message")
+        return inputMessage.value
+    }
+
+    function getSubscription(){
+        const isSubbed = document.getElementById("newsletter")
+        if(isSubbed.checked){
+            return "subscribed"
+        } else {
+            return "unsubscribed"
+        }
+    }
+
+    function getData(event){
+        event.preventDefault()
+        const data = {
+        username:getName(),
+        email:getemailInput(),
+        phone:getPhoneInput(),
+        priority: getPriority(),
+        subject: getSubject()
+    }
+
+        const card = document.createElement('div')
+        card.className = 'card'
+
+        const h1 = document.createElement('h1')
+        h1.textContent = "Message sent:"
+        card.appendChild(h1)
+        for(let key of Object.keys(data)){
+            const value = data[key]
+            const p = document.createElement('p')
+            p.textContent = `${key} : ${value}`
+            card.appendChild(p)
+        }
+
+        document.body.appendChild(card)
+    }
+
+    
+</script>
+</html>

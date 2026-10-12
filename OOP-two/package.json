@@ -1,0 +1,10 @@
+{
+  "name": "oop-two",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
