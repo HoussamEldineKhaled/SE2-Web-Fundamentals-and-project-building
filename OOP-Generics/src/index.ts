@@ -52,7 +52,29 @@ type Primitives = Exclude<AllTypes, null | undefined>
 type nullables = Extract<AllTypes, null | undefined>
 
 
-//
+//ReturnType
+
+function getUser() {
+  return {
+    id: "1",
+    name: "Alice",
+    email: "alice@example.com"
+  };
+}
+
+type User1 = ReturnType<typeof getUser>;
+
+// Parameters
+
+type parameters1 = Parameters<typeof getUser>
+
+// mapped types
+
+type Nullable<T> = {
+    [P in keyof T]: T[P] | null
+}
+
+
 
 
 
